@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: black;
+    background-image: url(../bb.jpg);
+    position: relative;
+}
+
+body::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #3c3c3c6b;
+    position: absolute;
+    z-index: -1;
+}
+
+.container {
+    margin: 0 100px;
+}
+
+.heading {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.heading h2 {
+    margin-top: 20px;
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: #808080;
+    font-weight: 900;
+}
+
+.heading p {
+    font-size: 25px;
+    color: #626262;
+    font-weight: 600;
+}
+
+.container .content {
+    width: 50%;
+    margin: auto;
+    display: grid;
+    margin-top: 50px;
+    border-radius: 25px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.105);
+    padding: 30px;
+    background-color: #ffd11adc;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 30px;
+    background-color: white;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.105);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.p {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    color: #808080;
+}
+
+.inputs .title {
+    border: none;
+    width: 60%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.inputs .title:focus {
+    border: none;
+    outline: none;
+}
+
+.inputs .title::placeholder {
+    font-weight: 400;
+    color: #cccccc;
+}
+
+.inputs .create {
+    width: 20%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #464646;
+    transition: 0.4s;
+    background-color: #ffd11adc;
+}
+
+.inputs .create:hover {
+    background-color: #00e600;
+    color: #222222;
+    letter-spacing: 1px;
+}
+
+.delAll {
+    display: flex;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.delAll:hover {
+    background-color: #ff3300;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.outputs {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.105);
+    margin-top: 20px;
+    position: relative;
+}
+
+.outputs .task {
+    font-size: 25px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.outputs .del {
+    width: 5%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #383838;
+    transition: 0.3s;
+    background-color: #fff;
+}
+
+.outputs .del:hover {
+    color: #ff3300;
+}
+
+.done {
+    position: relative;
+    left: 85%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 35px;
+    border: none;
+    background-color: #fff;
+    color: #ffd11adc;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.3s;
+}
+
+.done:hover {
+    color: #00e600;
+}
+
+
+/* start done box */
+
+.box-container {
+    width: 20%;
+    margin: 165px 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffd11adc;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.105);
+    display: none;
+}
+
+.box-container p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #808080;
+    padding-left: 5px;
+}
+
+.box-container .outputs:first-child {
+    margin-top: 10px;
+}
+
+.box-container .outputs {
+    height: 20px;
+}
+
+.box-container .outputs .task p {
+    color: #131313;
+}
+
+.box-container .outputs button {
+    font-size: 20px;
+}
+
+
+/* end done box */
+
+
+/* delAlert styling */
+
+.backDelAlert {
+    width: 100%;
+    height: 100vmax;
+    background-color: #060606db;
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.delAlert {
+    width: 500px;
+    height: 250px;
+    background-color: #1e1e1e;
+    position: fixed;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    border: #9a5d02 solid 5px;
+    border-radius: 25px;
+    display: grid;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.delAlert p {
+    font-size: 50px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ff9900;
+}
+
+.delAlert p::before {
+    content: '';
+    width: 70%;
+    height: 2px;
+    background-color: rgb(69, 68, 68);
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.delAlert .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delAlert .buttons button {
+    display: flex;
+    background-color: #ff9900;
+    width: 100px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #1e1e1e;
+    font-size: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delAlert .buttons .yes:hover {
+    background-color: #e60000c4;
+}
+
+.delAlert .buttons .no:hover {
+    background-color: #008000bf;
+}
